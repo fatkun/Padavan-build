@@ -39,6 +39,7 @@ jobs:
       env:
         TNAME: "NEWIFI-MINI NEWIFI3"
       run: |
+        cd /opt/rt-n56u/
         cwd=`pwd`
         CONFIG_TOOLCHAIN_DIR=${cwd//\//\\\/}\\/toolchain-mipsel
         cd trunk
