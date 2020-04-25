@@ -86,6 +86,14 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_SRELAY=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_WYY=n" >> .config #网易云解锁
         echo "CONFIG_FIRMWARE_INCLUDE_WYYBIN=n" >> .config #网易云解锁GO版本执行文件（4M多）注意固件超大小
+        
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_TTYD/d' .config
+        echo "CONFIG_FIRMWARE_INCLUDE_TTYD=y" >> .config
+        
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_MINIDLNA/d' .config
+        echo "CONFIG_FIRMWARE_INCLUDE_MINIDLNA=y" >> .config
+
+
         ####################################################################################
         #if [ "$m" = "PSG1208" ] || [ "$m" = "PSG1218" ] || [ "$m" = "PSG712" ]; then
         #sed -i '/CONFIG_FIRMWARE_INCLUDE_TTYD/d' .config
