@@ -20,6 +20,12 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@master
+    - name: Clone source code
+      run: |
+        git clone --depth=1 https://github.com/chongshengB/rt-n56u.git /opt/rt-n56u
+        cd /opt/rt-n56u/toolchain-mipsel
+        sh dl_toolchain.sh
+        mkdir -p /opt/images/
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
@@ -29,12 +35,6 @@ jobs:
         cpio git python-docutils gettext automake autopoint texinfo build-essential help2man \
         pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev \
         gcc-multilib
-    - name: Clone source code
-      run: |
-        git clone --depth=1 https://github.com/chongshengB/rt-n56u.git /opt/rt-n56u
-        cd toolchain-mipsel
-        sh dl_toolchain.sh
-        mkdir -p /opt/images/
     - name: Build Firmware
       env:
         TNAME: "NEWIFI-MINI NEWIFI3"
