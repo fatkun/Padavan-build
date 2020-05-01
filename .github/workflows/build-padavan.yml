@@ -94,6 +94,11 @@ jobs:
         sed -i '/CONFIG_FIRMWARE_INCLUDE_MINIDLNA/d' .config
         echo "CONFIG_FIRMWARE_INCLUDE_MINIDLNA=y" >> .config
         
+        # use ffmpeg 0.6
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_FFMPEG_NEW/d' .config
+        echo "CONFIG_FIRMWARE_INCLUDE_FFMPEG_NEW=n" >> .config     
+        
+        
         #####################
         if [ "$m" = "PSG1208" ] || [ "$m" = "PSG1218" ] || [ "$m" = "PSG712" ]; then
         echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y" >> .config #SS plus+
